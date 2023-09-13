@@ -1,0 +1,26 @@
+body{
+    font-family: 'Gilroy-Regular', sans-serif;
+}
+
+.container{
+    margin: 0 auto;
+    margin-top: 23.56px;
+    max-width: 950px;
+}
+
+.container__hero{
+    margin: 0 auto;
+    margin-top: 23.56px;
+    max-width: 950px;
+}
+
+a{
+    text-decoration: none;
+}
+
+li{
+    display: block;
+    color: #73738D;
+    font-size: 11.09px;
+}
+
