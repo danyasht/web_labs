@@ -3,7 +3,6 @@
   box-shadow: 0px 2.7722222805023193px 27.72222328186035px 0px #0000000A;
   background-color: #fff;
   color: #73738D99;
-  font-weight: 500;
   font-size: 11.09px;
   line-height: 16.63px;
   padding-left: 16.63px;
@@ -26,6 +25,14 @@
   height: 41.58px;
   border: none;
   border-radius: 34px;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.custom-box-one button:hover{
+  background-color: transparent;
+  border: 2px solid blue;
+  color: black;
 }
 
 .profile {
@@ -37,6 +44,7 @@
   box-shadow: 0px 13.861111640930176px 55.4444465637207px 0px #F2F5FA;
   background: #FFFFFF;
 }
+
 
 .content__inner-three {
   display: flex;
@@ -182,7 +190,6 @@
   float: right;
 }
 
-
 .custom-box-two {
   box-shadow: 0px 13.861111640930176px 55.4444465637207px 0px #F2F5FA;
   background-color: #FFFFFF;
@@ -207,6 +214,14 @@
   font-weight: 600;
   line-height: 13px;
   letter-spacing: 0em;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.custom-box-two button:hover{
+  background-color: transparent;
+  border: 2px solid #26C296;
+  color: #26C296;
 }
 
 .better__relationships {
@@ -232,4 +247,82 @@
 
 .relationships__better__text {
   padding-left: 22px;
+}
+
+@media screen and (max-width: 768px) {
+  .custom-box-one {
+    font-size: 10px;
+    line-height: 15px;
+    width: 230px;
+    margin: 0 auto;
+  }
+
+  .custom-box-one button {
+    font-size: 9px;
+    padding: 6px 12px;
+    width: 90px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+
+  .custom-box-one button:hover{
+    background-color: transparent;
+    border: 2px solid blue;
+    color: black;
+  }
+
+  .profile {
+    margin: 0 auto;
+    width: auto;
+    margin-bottom: 20px;
+  }
+
+  .custom-box-two button {
+    display: none;
+  }
+
+  .custom-box-two {
+    width: auto;
+  }
+
+  .content__inner-four {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .anxiety {
+    margin-top: 40px;
+    width: auto;
+    margin-right: 0px;
+  }
+
+  .content__anxiety {
+    padding-top: 0px;
+    padding-left: 0px;
+  }
+
+  .sub-header__anxiety,
+  .sub-title {
+    text-align: center;
+  }
+
+  .header__anxiety {
+    padding-top: 30px;
+    width: 227px;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .dots__image {
+    display: none;
+  }
+
+  .relationships__better__text,
+  .better__relationships,
+  .free__trial {
+    padding-right: 0px;
+    text-align: center;
+    width: auto;
+    margin: 0 auto;
+  }
 }
