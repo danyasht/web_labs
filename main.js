@@ -7,42 +7,6 @@ const sumButton = document.querySelector('.btn-sum');
 
 const listArray = [];
 
-const createFormHandler = (e) => {
-  e.preventDefault();
-
-  if (
-    e.target.exampleInputPrice1?.value &&
-    e.target.exampleInputDescription1?.value &&
-    e.target.exampleInputImage1?.value
-  ) {
-    const item = document.createElement('div');
-    item.className = 'hero-list-group-item';
-    const price = document.createElement('p');
-    const description = document.createElement('p');
-    const image = document.createElement('img');
-
-    price.appendChild(
-      document.createTextNode(e.target.exampleInputPrice1?.value)
-    );
-    description.appendChild(
-      document.createTextNode(e.target.exampleInputDescription1?.value)
-    );
-    image.src = e.target.exampleInputImage1?.value;
-    image.classList.add('image-styled');
-
-    item.appendChild(price);
-    item.appendChild(description);
-    item.appendChild(image);
-
-    listGroup.appendChild(item);
-  }
-
-  e.target.exampleInputPrice1.value = '';
-  e.target.exampleInputDescription1.value = '';
-  e.target.exampleInputImage1.value = '';
-};
-
-createForm.addEventListener('submit', createFormHandler);
 
 searchButton.addEventListener('click', () => {
   const inputDescription = searchInput.value.trim().toLowerCase();
@@ -112,6 +76,89 @@ toggleSwitch.addEventListener('change', () => {
     })
   }
 });
+
+const storedItems = JSON.parse(localStorage.getItem('items')) || [];
+
+function createAndDisplayItem(item, index) {
+  const listItem = document.createElement('div');
+  listItem.className = 'hero-list-group-item';
+
+  const price = document.createElement('p');
+  price.textContent = item.price;
+  listItem.appendChild(price);
+
+  const description = document.createElement('p');
+  description.textContent = item.description;
+  listItem.appendChild(description);
+
+  const image = document.createElement('img');
+  image.src = item.image;
+  image.classList.add('image-styled');
+  image.style.height = '300px'; 
+  listItem.appendChild(image);
+
+  const deleteButton = document.createElement('button');
+  deleteButton.textContent = 'Delete';
+  deleteButton.addEventListener('click', () => {
+    storedItems.splice(index, 1);
+    localStorage.setItem('items', JSON.stringify(storedItems));
+
+    listGroup.removeChild(listItem);
+  });
+  deleteButton.classList.add('delete-button');
+  listItem.appendChild(deleteButton);
+
+  const editButton = document.createElement('button');
+  editButton.textContent = 'Edit';
+  editButton.addEventListener('click', () => {
+    editItem(index);
+  });
+  editButton.classList.add('edit-button');
+  listItem.appendChild(editButton);
+
+  listGroup.appendChild(listItem);
+}
+
+storedItems.forEach(createAndDisplayItem);
+
+function editItem(index) {
+  const item = storedItems[index];
+
+  const newPrice = prompt('Enter a new price:', item.price);
+  const newDescription = prompt('Enter a new description:', item.description);
+  const newImage = prompt('Enter a new image URL:', item.image);
+
+  if (newPrice !== null && newDescription !== null && newImage !== null) {
+    item.price = newPrice;
+    item.description = newDescription;
+    item.image = newImage;
+
+    updateDisplayedItem(index, item);
+  }
+}
+
+function updateDisplayedItem(index, item) {
+  const listItem = listGroup.children[index];
+
+  if (listItem) {
+    const price = listItem.querySelector('p:first-child');
+    price.textContent = item.price;
+
+    const description = listItem.querySelector('p:nth-child(2)');
+    description.textContent = item.description;
+
+    const image = listItem.querySelector('img');
+    image.src = item.image;
+  }
+}
+
+
+
+
+
+
+
+
 
 
 
