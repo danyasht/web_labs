@@ -2,7 +2,7 @@ import React from "react";
 import HeroCatalog from "../Components/Catalog/HeroCatalog"
 
 
-const Catalog = (props) => {
+const Catalog = () => {
     return (
         <div>
             <HeroCatalog/>

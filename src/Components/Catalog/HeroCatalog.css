@@ -13,7 +13,7 @@
 .sort-button {
     width: 150px;
     height: 60px;
-    border: none;
+    border: 2px solid #171717;
     border-radius: 15px;
     background: #eaeaea;
     font-size: 30px;
@@ -26,7 +26,7 @@
 .apply-filters-button {
     width: 150px;
     height: 60px;
-    border: none;
+    border: 2px solid #171717;
     border-radius: 15px;
     background: #eaeaea;
     font-size: 25px;
@@ -44,4 +44,64 @@
 
 .catalog {
     background:linear-gradient(270deg, #eaeaea, #efefef 80%);
+}
+
+.searchproduct {
+    display: flex;
+    justify-content: center;
+    height: 40px;
+}
+
+.searchproduct ::placeholder {
+    width: 250px;
+}
+
+.back-button {
+    width: 150px;
+    height: 60px;
+    border: none;
+    border-radius: 15px;
+    background: #252525;
+    font-size: 20px;
+    color: #fff;
+    margin: 50px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.search-button {
+    width: 100px;
+    height: 40px;
+    border: none;
+    border-radius: 7px;
+    background: #252525;
+    font-size: 20px;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.minprice-input, 
+.maxprice-input {
+    width: 150px;
+    height: 37px;
+    border: none;
+    border-radius: 7px;
+    background: #252525;
+    font-size: 17px;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.search-form {
+    height: 37px;
+    border: none;
+    border-radius: 7px;
+    background: #252525;
+    font-size: 17px;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
 }
