@@ -1,15 +1,30 @@
-import React, { useState, useContext } from 'react';
-import "./HeroCatalog.css";
+import React, { useState, useEffect } from 'react';
+import './HeroCatalog.css';
 import Item from '../Item/Item';
-import { ShopContext } from '../../Context/ShopContext';
+import axios from 'axios';
 
-const HeroCatalog = (props) => {
-  const { all_product: products } = useContext(ShopContext);
+const HeroCatalog = () => {
+  const [products, setProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [minPrice, setMinPrice] = useState('');
   const [maxPrice, setMaxPrice] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [showBackButton, setShowBackButton] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:3001/products');
+        setProducts(response.data);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching data from the server:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const handleSearch = (event) => {
     event.preventDefault();
@@ -45,19 +60,22 @@ const HeroCatalog = (props) => {
     <div className="catalog">
       <h1>Showing {displayProducts.length} of {products.length} products</h1>
       <form className="searchproduct" onSubmit={handleSearch}>
-        <input className='search-form'
+        <input
+          className='search-form'
           type="text"
           placeholder="Search by product name..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <input className='minprice-input'
+        <input
+          className='minprice-input'
           type="number"
           placeholder="Min Price"
           value={minPrice}
           onChange={(e) => setMinPrice(e.target.value)}
         />
-        <input className='maxprice-input'
+        <input
+          className='maxprice-input'
           type="number"
           placeholder="Max Price"
           value={maxPrice}
@@ -65,26 +83,27 @@ const HeroCatalog = (props) => {
         />
         <button className="search-button" type="submit">Search</button>
       </form>
-      {showBackButton && <button className='back-button' onClick={handleBack}>Back</button>}
-      <div className='catalog-products'>
-        {displayProducts.map((item) => (
-          <Item
-            key={item.id}
-            id={item.id}
-            name={item.name}
-            image={item.image}
-            price={item.price}
-            available_sizes={item.available_sizes}
-          />
-        ))}
-      </div>
+      {showBackButton && <button className="back-button" onClick={handleBack}>Back</button>}
+      {loading ? (
+        <div className="loader">Loading...</div>
+      ) : (
+        <div className="catalog-products">
+          {displayProducts.map((item) => (
+            <Item
+              key={item.id}
+              id={item.id}
+              name={item.name}
+              image={item.image}
+              price={item.price}
+              available_sizes={item.available_sizes}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };
 
+
+
 export default HeroCatalog;
-
-
-
-
-

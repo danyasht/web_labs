@@ -1,113 +1,100 @@
-import p1_img from "./product_1.png";
-import p2_img from "./product_2.png";
-import p3_img from "./product_3.png";
-import p4_img from "./product_4.png";
-import p5_img from "./product_5.png";
-import p6_img from "./product_6.png";
-import p7_img from "./product_7.png";
-import p8_img from "./product_8.png";
-import p9_img from "./product_9.png";
-import p10_img from "./product_10.png";
-import p11_img from "./product_11.png";
-import p12_img from "./product_12.png";
-
-let all_product = [
+const allProducts = [
   {
     id: 1,
     name: "Cargo pants, light brown",
     category: "Catalog",
-    image: p1_img,
+    image: "./product_1.png",
     price: 40.0,
-    available_sizes: "XS, M, Xl" ,
+    available_sizes: "XS, M, Xl"
   },
   {
     id: 2,
     name: "Jeans regular, light blue",
     category: "Catalog",
-    image: p2_img,
+    image: "./product_2.png",
     price: 45.0,
-    available_sizes: "XS, S, L, Xl" ,
+    available_sizes: "XS, S, L, Xl"
   },
   {
     id: 3,
     name: "Gym sweatpants, black",
     category: "Catalog",
-    image: p3_img,
+    image: "./product_3.png",
     price: 25.0,
-    available_sizes: "S, M, L, Xl" ,
+    available_sizes: "S, M, L, Xl"
   },
   {
     id: 4,
     name: "Business pants, gray",
     category: "Catalog",
-    image: p4_img,
+    image: "./product_4.png",
     price: 37.0,
-    available_sizes: "XS, M, L, Xl" ,
+    available_sizes: "XS, M, L, Xl"
   },
   {
     id: 5,
     name: "Business pants, black",
     category: "Catalog",
-    image: p5_img,
+    image: "./product_5.png",
     price: 67.0,
-    available_sizes: "XS, S, M, L" ,
+    available_sizes: "XS, S, M, L"
   },
   {
     id: 6,
     name: "Regular jeans, gray",
     category: "Catalog",
-    image: p6_img,
+    image: "./product_6.png",
     price: 71.0,
-    available_sizes: "XS, S, M, Xl" ,
+    available_sizes: "XS, S, M, Xl"
   },
   {
     id: 7,
     name: "Tracking pants, light brown",
     category: "Catalog",
-    image: p7_img,
+    image: "./product_7.png",
     price: 43.0,
-    available_sizes: "XS, L, Xl" ,
+    available_sizes: "XS, L, Xl"
   },
   {
     id: 8,
     name: "Cargo pants, black",
     category: "Catalog",
-    image: p8_img,
+    image: "./product_8.png",
     price: 32.0,
-    available_sizes: "L, Xl" ,
+    available_sizes: "L, Xl"
   },
   {
     id: 9,
     name: "Regular jeans, black",
     category: "Catalog",
-    image: p9_img,
+    image: "./product_9.png",
     price: 29.0,
-    available_sizes: "XS, S, M" ,
+    available_sizes: "XS, S, M"
   },
   {
     id: 10,
     name: "Tracking pants, black",
     category: "Catalog",
-    image: p10_img,
+    image: "./product_10.png",
     price: 53.0,
-    available_sizes: "XS, S, L, Xl" ,
+    available_sizes: "XS, S, L, Xl"
   },
   {
     id: 11,
     name: "Business pants, gray",
     category: "Catalog",
-    image: p11_img,
+    image: "./product_11.png",
     price: 55.0,
-    available_sizes: "XS, S, M, Xl" ,
+    available_sizes: "XS, S, M, Xl"
   },
   {
     id: 12,
     name: "Baggy jeans, blue",
     category: "Catalog",
-    image: p12_img,
+    image: "./product_12.png",
     price: 79.0,
-    available_sizes: "XS, M, L, Xl" ,
-  },
+    available_sizes: "XS, M, L, Xl"
+  }
 ];
 
-export default all_product;
+module.exports = allProducts;

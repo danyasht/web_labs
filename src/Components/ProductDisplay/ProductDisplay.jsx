@@ -1,5 +1,7 @@
 import React from 'react'
 import "./ProductDisplay.css"
+import photo from '/Users/macbookDanya/Desktop/web/lab8_web_react/frontend/src/Components/Assets/product13.jpeg'
+
 
 export const ProductDisplay = (props) => {
     const { product } = props;
@@ -7,13 +9,13 @@ export const ProductDisplay = (props) => {
         <div className='productdisplay'>
             <div className="productdisplay-left">
                 <div className="productdisplay-img-list">
-                    <img src={product.image} alt="" />
-                    <img src={product.image} alt="" />
-                    <img src={product.image} alt="" />
-                    <img src={product.image} alt="" />
+                    <img src={photo} alt="" />
+                    <img src={photo} alt="" />
+                    <img src={photo} alt="" />
+                    <img src={photo} alt="" />
                 </div>
                 <div className="productdisplay-img">
-                    <img className='productdisplay-main-img' src={product.image} alt="" />
+                    <img className='productdisplay-main-img' src={photo} alt="" />
                 </div>
             </div>
             <div className="productdisplay-right">
@@ -31,3 +33,5 @@ export const ProductDisplay = (props) => {
         </div>
     )
 }
+
+export default ProductDisplay
